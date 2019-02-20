@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS系列 —— 纯CSS切割文字</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            background-color: bisque;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 5vw;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 25px;
+            color: #15bda6;
+        }
+
+        h1 {
+            position: relative;
+            color: transparent;
+            caret-color: white;
+            outline: none;
+            cursor: text;
+            white-space: nowrap;
+        }
+
+        h1::before,
+        h1::after {
+            content: attr(data-content);
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            color: brown;
+        }
+
+        h1::before {
+            display: flex;
+            align-items: flex-start;
+            height: 50%;
+            top: 0;
+        }
+
+        h1:not(:focus)::after {
+            animation: mymove 5s 1s ease alternate infinite;
+        }
+
+        h1::after {
+            display: flex;
+            align-items: flex-end;
+            bottom: 0;
+            height: 50%;
+        }
+
+        @keyframes mymove {
+            0% {
+                transform: translateX(0px);
+            }
+
+            30% {
+                transform: translateX(-3vw);
+            }
+
+            60% {
+                transform: translateX(0px);
+            }
+
+            100% {
+                transform: translateX(3vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p>点击下方文字可进行编辑</p>
+    <h1 data-content="Hello world !" contenteditable="true">Hello world !</h1>
+    <script>
+        document.getElementsByTagName('h1')[0].addEventListener('input', function () {
+            h1.setAttribute('data-content', h1.innerText);
+        });
+    </script>
+</body>
+
+</html>
