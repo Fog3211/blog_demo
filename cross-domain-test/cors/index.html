@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cross-domain-test</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="未收到数据" id="showMessage">
+        <button id="sendBtn">获取数据</button>
+    </div>
+
+</body>
+<script>
+    var showMessage = document.getElementById("showMessage");
+    var sendBtn = document.getElementById("sendBtn");
+    sendBtn.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost:3000/getData');
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                showMessage.value = xhr.responseText;
+                console.log(xhr.responseText);
+            }
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cross-domain-test</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="未收到数据" id="showMessage">
+        <button id="sendBtn">获取数据</button>
+    </div>
+</body>
+<script>
+    var showMessage = document.getElementById("showMessage");
+    var sendBtn = document.getElementById("sendBtn");
+    sendBtn.onclick = function () {
+        var script = document.createElement("script");
+        script.src = "http://127.0.0.1:3000/jsonp?callback=handleResponse";
+        document.body.insertBefore(script, document.body.firstChild);  
+    }
+    function handleResponse(response){
+            console.log(response);
+            showMessage.value=response.data;
+    }
+</script>
+
+</html>
