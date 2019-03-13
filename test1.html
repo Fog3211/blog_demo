@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片充当文字颜色</title>
+    <style>
+        .text {
+            font-size: 300px;
+            background-image: url('./bg.png');
+            /*选择一张图片 */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text">hello world</div>
+</body>
+
+</html>
