@@ -6,3 +6,4 @@
 - [branch4 (三栏布局demo)](https://github.com/fog3211/blog_demo/tree/branch4)  
 - [branch5 (js封装函数防抖与节流)](https://github.com/fog3211/blog_demo/tree/branch5)  
 - [branch6 (获取元素高度demo)](https://github.com/fog3211/blog_demo/tree/branch6)  
+- [branch7 (CSS改变文字背景色)](https://github.com/fog3211/blog_demo/tree/branch7)  
