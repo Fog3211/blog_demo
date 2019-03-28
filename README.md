@@ -1,11 +1,5 @@
-# blog_demo索引
+# HTML5中的拖拽事件
 
-- [branch1 (前端解决跨域问题demo)](https://github.com/fog3211/blog_demo/tree/branch1)  
-- [branch2 (javaScript屏蔽网页源码)](https://github.com/fog3211/blog_demo/tree/branch2)  
-- [branch3 (纯CSS切割文字)](https://github.com/fog3211/blog_demo/tree/branch3)  
-- [branch4 (三栏布局demo)](https://github.com/fog3211/blog_demo/tree/branch4)  
-- [branch5 (js封装函数防抖与节流)](https://github.com/fog3211/blog_demo/tree/branch5)  
-- [branch6 (获取元素高度demo)](https://github.com/fog3211/blog_demo/tree/branch6)  
-- [branch7 (CSS改变文字背景色)](https://github.com/fog3211/blog_demo/tree/branch7)  
-- [branch8 (CSS实现不规则图片动画)](https://github.com/fog3211/blog_demo/tree/branch8)  
-- [branch9 (SVG签名动画)](https://github.com/fog3211/blog_demo/tree/branch9)  
+![avatar](https://img.fog3211.com/6%298~H4%5D%60ARL8FGY~$AMYE%28A.gif)  
+![avatar](https://img.fog3211.com/%5D%5B1R~%7DZCVCE%5BPE%5DPM7O%7B0WT.gif)  
+![avatar](https://img.fog3211.com/ES41HNL5KT5F0NADU1%25J84I.gif)  
