@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件上传</title>
+  <style>
+    #container {
+      border: 1px solid #aaa;
+      margin: 10px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>请拖动您的照片到下方方框区域</h3>
+  <div id="container"></div>
+
+  <script>
+    //监听document的drop事件——取消其默认行为：在新窗口中打开图片
+    document.ondragover = (e) => {
+      e.preventDefault(); //使得drop事件可以触发
+    }
+    document.ondrop = (e) => {
+      e.preventDefault(); //阻止在新窗口中打开图片
+    }
+
+    //监听div#container的drop事件，设法读取到释放的图片数据，显示出来
+    container.ondragover = (e) => {
+      e.preventDefault();
+    }
+    container.ondrop = (e) => {
+      var f0 = e.dataTransfer.files[0];
+
+      //从文件对象中读取数据
+      var fr = new FileReader();
+      fr.readAsDataURL(f0); //从文件中读取URL数据
+      fr.onload = () => {
+        console.log('读取文件完成')
+        // console.log(fr.result);
+        var img = new Image(200, 200);
+        img.src = fr.result; //URL数据
+        container.appendChild(img);
+      }
+    }
+  </script>
+</body>
+
+</html>

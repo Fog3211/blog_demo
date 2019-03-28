@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回收站特效</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #trash {
+            opacity: .2;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="trash" src="./img/4.png">
+    <hr />
+    <img id="target1" src="./img/1.png" class="target-img">
+    <img id="target2" src="./img/2.png" class="target-img">
+    <img id="target3" src="./img/3.png" class="target-img">
+
+    <script>
+        let imgList = document.getElementsByClassName('target-img'); //找到全部img元素
+        for (let i = 0; i < imgList.length; i++) {
+            imgList[i].ondragstart = function (e) {
+                e.dataTransfer.setData('PlaneID', this.id); //保存id
+            }
+        }
+        //容器事件
+        trash.ondragenter = () => {
+            console.log('drag enter');
+            trash.style.opacity = "1";
+        }
+        trash.ondragleave = () => {
+            console.log('drag leave');
+            trash.style.opacity = ".2";
+        }
+        trash.ondragover = (e) => {
+            console.log('drag over');
+            e.preventDefault(); //阻止默认行为，使得drop可以触发
+        }
+        trash.ondrop = (e) => {
+            console.log('drop');
+            let id = e.dataTransfer.getData('PlaneID'); //得到id值
+            let el = document.getElementById(id); //根据id值找到相关的元素
+            el.parentNode.removeChild(el); //从父元素中删除子节点
+        }
+    </script>
+</body>
+
+</html>

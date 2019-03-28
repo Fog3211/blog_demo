@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片拖拽</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #target {
+            position: absolute;
+            display: block;
+            width: 300px;
+            height: 300px;
+            background: url("./img/1.png") no-repeat center / cover;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点击图片会跳转</h1>
+    <a href="https://fog3211.com/" id="target"></a>
+
+    <script>
+        let oX = 0,
+            oY = 0;
+        target.ondragstart = (e) => {
+            console.log('开始拖动');
+            //计算鼠标相对于图片的偏移量
+            oX = e.offsetX;
+            oY = e.offsetY;
+        }
+        target.ondrag = (e) => {
+            console.log('拖动中');
+            let x = e.pageX;
+            let y = e.pageY;
+            console.log(x + '-' + y);
+            //drag事件最后一刻，无法读取鼠标的坐标，pageX和pageY都变为0
+            if (x == 0 && y == 0) {
+                return; //不处理拖动最后一刻X和Y都为0的情形
+            }
+            // 减去偏移量（相对于左上角位置）
+            x -= oX;
+            y -= oY;
+
+            // 重新定位图片的位置
+            target.style.left = x + 'px';
+            target.style.top = y + 'px';
+        }
+        target.ondragend = () => {
+            console.log('拖动结束');
+        }
+    </script>
+</body>
+
+</html>
