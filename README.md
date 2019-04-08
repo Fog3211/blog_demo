@@ -1,12 +1,50 @@
-# blog_demo索引
+# mpvue适配axios 说明
 
-- [branch1 (前端解决跨域问题demo)](https://github.com/fog3211/blog_demo/tree/branch1)  
-- [branch2 (javaScript屏蔽网页源码)](https://github.com/fog3211/blog_demo/tree/branch2)  
-- [branch3 (纯CSS切割文字)](https://github.com/fog3211/blog_demo/tree/branch3)  
-- [branch4 (三栏布局demo)](https://github.com/fog3211/blog_demo/tree/branch4)  
-- [branch5 (js封装函数防抖与节流)](https://github.com/fog3211/blog_demo/tree/branch5)  
-- [branch6 (获取元素高度demo)](https://github.com/fog3211/blog_demo/tree/branch6)  
-- [branch7 (CSS改变文字背景色)](https://github.com/fog3211/blog_demo/tree/branch7)  
-- [branch8 (CSS实现不规则图片动画)](https://github.com/fog3211/blog_demo/tree/branch8)  
-- [branch9 (SVG签名动画)](https://github.com/fog3211/blog_demo/tree/branch9)  
-- [branch10 (html5拖拽事件)](https://github.com/fog3211/blog_demo/tree/branch10)  
+## 安装依赖
+server端  
+``` shell
+cd server
+npm i
+```
+前端  
+``` shell
+cd axios-adapter
+npm i 
+npm run dev
+```
+## 修改axios文件 
+
+进入`axios-adapter/node_modules/axios/dist/axios.js`中，  
+``` js
+// 注释掉这段代码
+    axios.all = function all(promises) {
+      return Promise.all(promises);
+    };
+```
+``` js
+// 添加
+      axios.defaults.adapter = function (config) {
+        return new Promise((resolve, reject) => {
+          //  console.log(config)
+          let data = config.method === 'get' ? config.params :
+           JSON.stringify(JSON.parse(config.data))
+          // wx小程序发起请求
+          wx.request({
+            url: config.url,
+            method: config.method,
+            data: data,
+            success: (res) => {
+              return resolve(res)
+            },
+            fail: (err) => {
+              return reject(err)
+            }
+          })
+        })
+ ```
+ ## 打开微信开发者工具查看效果
+ 
+ 使用微信开发者工具打开axios-adapter下的dist/wx项目，并在详情中勾选`不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书`  
+ 
+ ## 搞定所有配置，在控制台可以查看效果
+
