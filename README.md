@@ -22,7 +22,7 @@ npm run dev
     };
 ```
 ``` js
-// 添加
+        // 添加
       axios.defaults.adapter = function (config) {
         return new Promise((resolve, reject) => {
           //  console.log(config)
@@ -42,9 +42,16 @@ npm run dev
           })
         })
  ```
+ ``` js
+    //webpack.base.conf.js中添加
+     alias: {
+      'axios':'axios/dist/axios'
+    }
+ ```
  ## 打开微信开发者工具查看效果
  
  使用微信开发者工具打开axios-adapter下的dist/wx项目，并在详情中勾选`不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书`  
  
  ## 搞定所有配置，在控制台可以查看效果
+ 虽然配置起来比较繁琐，但是亲测有效，不折腾，怎么算做一个好的程序员。
 
