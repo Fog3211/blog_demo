@@ -10,3 +10,4 @@
 - [branch8 (CSS实现不规则图片动画)](https://github.com/fog3211/blog_demo/tree/branch8)  
 - [branch9 (SVG签名动画)](https://github.com/fog3211/blog_demo/tree/branch9)  
 - [branch10 (html5拖拽事件)](https://github.com/fog3211/blog_demo/tree/branch10)  
+- [branch11 (mpvue适配axios)](https://github.com/fog3211/blog_demo/tree/branch11)  
