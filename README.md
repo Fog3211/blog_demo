@@ -1,13 +1,37 @@
-# blog_demo索引
+# my-demo
 
-- [branch1 (前端解决跨域问题demo)](https://github.com/fog3211/blog_demo/tree/branch1)  
-- [branch2 (javaScript屏蔽网页源码)](https://github.com/fog3211/blog_demo/tree/branch2)  
-- [branch3 (纯CSS切割文字)](https://github.com/fog3211/blog_demo/tree/branch3)  
-- [branch4 (三栏布局demo)](https://github.com/fog3211/blog_demo/tree/branch4)  
-- [branch5 (js封装函数防抖与节流)](https://github.com/fog3211/blog_demo/tree/branch5)  
-- [branch6 (获取元素高度demo)](https://github.com/fog3211/blog_demo/tree/branch6)  
-- [branch7 (CSS改变文字背景色)](https://github.com/fog3211/blog_demo/tree/branch7)  
-- [branch8 (CSS实现不规则图片动画)](https://github.com/fog3211/blog_demo/tree/branch8)  
-- [branch9 (SVG签名动画)](https://github.com/fog3211/blog_demo/tree/branch9)  
-- [branch10 (html5拖拽事件)](https://github.com/fog3211/blog_demo/tree/branch10)  
-- [branch11 (mpvue适配axios)](https://github.com/fog3211/blog_demo/tree/branch11)  
+> A Mpvue project
+
+## Build Setup
+
+``` bash
+# 初始化项目
+vue init mpvue/mpvue-quickstart myproject
+cd myproject
+
+# 安装依赖
+yarn
+
+# 开发时构建
+npm dev
+
+# 打包构建
+npm build
+
+# 指定平台的开发时构建(微信、百度、头条、支付宝)
+npm dev:wx
+npm dev:swan
+npm dev:tt
+npm dev:my
+
+# 指定平台的打包构建
+npm build:wx
+npm build:swan
+npm build:tt
+npm build:my
+
+# 生成 bundle 分析报告
+npm run build --report
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
