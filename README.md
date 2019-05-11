@@ -11,3 +11,4 @@
 - [branch9 (SVG签名动画)](https://github.com/fog3211/blog_demo/tree/branch9)  
 - [branch10 (html5拖拽事件)](https://github.com/fog3211/blog_demo/tree/branch10)  
 - [branch11 (mpvue适配axios)](https://github.com/fog3211/blog_demo/tree/branch11)  
+- [branch12 (小程序获取openid)](https://github.com/fog3211/blog_demo/tree/branch12)  
